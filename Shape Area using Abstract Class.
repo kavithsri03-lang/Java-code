@@ -1,0 +1,67 @@
+import java.util.Scanner;
+
+abstract class Shape {
+    double a, b;
+
+    abstract void printArea();
+}
+
+class Rectangle extends Shape {
+    void printArea() {
+        System.out.println("The Area of Rectangle is: " + (a * b));
+    }
+}
+
+class Triangle extends Shape {
+    void printArea() {
+        System.out.println("The Area of Triangle is: " + (0.5 * a * b));
+    }
+}
+
+class Circle extends Shape {
+    void printArea() {
+        System.out.println("The Area of Circle is: " + (3.14 * a * a));
+    }
+}
+
+public class Mains {
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Enter the shape:");
+        String shape = sc.next();
+
+        if (shape.equalsIgnoreCase("rectangle")) {
+            Rectangle r = new Rectangle();
+
+            System.out.println("Enter Length and Breadth:");
+            r.a = sc.nextDouble();
+            r.b = sc.nextDouble();
+
+            r.printArea();
+
+        } else if (shape.equalsIgnoreCase("triangle")) {
+            Triangle t = new Triangle();
+
+            System.out.println("Enter Base and Height:");
+            t.a = sc.nextDouble();
+            t.b = sc.nextDouble();
+
+            t.printArea();
+
+        } else if (shape.equalsIgnoreCase("circle")) {
+            Circle c = new Circle();
+
+            System.out.println("Enter Radius:");
+            c.a = sc.nextDouble();
+
+            c.printArea();
+
+        } else {
+            System.out.println("Invalid Shape");
+        }
+
+        sc.close();
+    }
+}
